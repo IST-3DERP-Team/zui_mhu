@@ -1,0 +1,100 @@
+<mvc:View
+    controllerName="zuimhu.controller.main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:uiL="sap.ui.layout"
+    xmlns:uiT="sap.ui.table"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:semantic="sap.m.semantic"
+    xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+    xmlns:cards="sap.f.cards"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:sv="sap.ui.comp.smartvariants"
+    xmlns:layout="sap.ui.layout"
+    xmlns:t="sap.ui.table"
+    xmlns:plugins="sap.ui.table.plugins"
+    xmlns:fb="sap.ui.comp.filterbar"
+    displayBlock="true"
+>
+    <Page id="page" title="{i18n>title}" showHeader="false">
+        <content>
+            <VBox fitContainer="true">
+                <smartfilterbar:SmartFilterBar id="smartFilterBar" entitySet="ZVB_3DERP_MHU_FILTERS" search="onSearch" persistencyKey="3DERP_StylesPKey" showClearOnFB="true" filterContainerWidth="15rem">
+                    <smartfilterbar:controlConfiguration>
+                        <smartfilterbar:ControlConfiguration key="SBU" groupId="_BASIC" label="SBU" mandatory="mandatory" width="50px">
+                            <smartfilterbar:customControl>
+                                <ComboBox id="cboxSBU"
+                                    selectedKey="{ui>/sbu}"
+                                    items="{
+                                        path: '/ZVB_3DERP_SBU_SH'
+                                    }">
+                                    <core:Item key="{SBU}" text="{SBU}" />
+                                </ComboBox>                                  
+                            </smartfilterbar:customControl>
+                        </smartfilterbar:ControlConfiguration>
+                    </smartfilterbar:controlConfiguration>
+                    <smartfilterbar:controlConfiguration>
+                        <smartfilterbar:ControlConfiguration key="HUTYP" label="HU Type" groupId="_BASIC" preventInitialDataFetchInValueHelpDialog="false" />
+                    </smartfilterbar:controlConfiguration>
+                    <smartfilterbar:controlConfiguration>
+                        <smartfilterbar:ControlConfiguration key="WHSECD" label="Warehouse" groupId="_BASIC" preventInitialDataFetchInValueHelpDialog="false" />
+                    </smartfilterbar:controlConfiguration>
+                    <smartfilterbar:controlConfiguration>
+                        <smartfilterbar:ControlConfiguration key="STORAREACD" label="Storage Area" groupId="_BASIC" preventInitialDataFetchInValueHelpDialog="false" />
+                    </smartfilterbar:controlConfiguration>
+                    <smartfilterbar:controlConfiguration>
+                        <smartfilterbar:ControlConfiguration key="PLANTCD" label="Plant" groupId="_BASIC" preventInitialDataFetchInValueHelpDialog="false" />
+                    </smartfilterbar:controlConfiguration>
+                    <smartfilterbar:controlConfiguration>
+                        <smartfilterbar:ControlConfiguration key="SLOC" label="Sloc" groupId="_BASIC" preventInitialDataFetchInValueHelpDialog="false" />
+                    </smartfilterbar:controlConfiguration>
+                    <smartfilterbar:controlConfiguration>
+                        <smartfilterbar:ControlConfiguration key="BINCD" label="Bin" groupId="_BASIC" preventInitialDataFetchInValueHelpDialog="false" />
+                    </smartfilterbar:controlConfiguration>
+                    <smartfilterbar:controlConfiguration>
+                        <smartfilterbar:ControlConfiguration key="EBELN" label="PO Number" groupId="_BASIC" preventInitialDataFetchInValueHelpDialog="false" />
+                    </smartfilterbar:controlConfiguration>
+                    <smartfilterbar:layoutData>
+                        <FlexItemData growFactor="0"/>
+                    </smartfilterbar:layoutData>
+                </smartfilterbar:SmartFilterBar>
+                <uiT:Table id="mainTab" class="sapUiTinyMarginBottom sapUiTinyMarginBegin sapUiTinyMarginEnd" visibleRowCountMode="Auto" showColumnVisibilityMenu="true" rows="{MHU>/results}" enableColumnFreeze="true" selectionMode="MultiToggle" cellClick="onCellClickHdr" sort="onSorted" rowSelectionChange="onRowSelect" >
+                    <uiT:extension>
+                        <Toolbar>
+                            <ToolbarSpacer />
+                            <SearchField id="searchFieldMain" placeholder="Search" value="" search=".onSearchHeader" width="15rem" />
+                            <ToolbarSeparator />
+                            <Button id="btnSaveMain" icon="sap-icon://save" press=".onSaveHdr" visible="false" />
+                            <Button id="btnCancelMain" icon="sap-icon://sys-cancel" press=".onCancelHdr" visible="false" />
+                            <Button id="btnNewMain" icon="sap-icon://add" press=".onNewHdr" visible="true" />
+                            <Button id="btnEditMain" icon="sap-icon://edit" press=".onEditHdr" visible="true" />
+                            <Button id="btnPurgeMain" icon="sap-icon://delete" press=".onPurgeHdr" visible="true" />
+                            <Button id="btnSetStatus" icon="sap-icon://settings" press=".onSetStatus" visible="true" />
+                            <Button id="btnRefreshMain" icon="sap-icon://refresh" press=".onRefreshMain" visible="true" />
+                            <Button id="btnExportExcel" icon="sap-icon://download" press=".onExportExcel" visible="true" />
+                            <Button id="btnSaveLayout" icon="sap-icon://grid" press=".onSaveLayout" visible="true" />
+                        </Toolbar>
+                    </uiT:extension>
+                    <uiT:layoutData>
+                        <FlexItemData growFactor="1" baseSize="0%" />
+                    </uiT:layoutData>
+                </uiT:Table>
+                <uiT:Table id="detailsTab" class="sapUiTinyMarginBottom sapUiTinyMarginBegin sapUiTinyMarginEnd" visibleRowCountMode="Auto" showColumnVisibilityMenu="true" rows="{MHUDTLS>/results}" enableColumnFreeze="true" selectionMode="MultiToggle" cellClick="onCellClickDtls" sort="onSorted">
+                    <uiT:extension>
+                        <Toolbar>
+                            <Text id="txtHUID" text="Internal HU ID: {ui>/HUID}" class="selHdrKeyFontStyle" />
+                            <ToolbarSpacer />
+                            <SearchField id="searchFieldDtls" placeholder="Search" value="" search="filterGlobally" width="15rem" />
+                            <ToolbarSeparator />
+                            <Button id="btnRefreshDtls" icon="sap-icon://refresh" press=".onRefreshDtls" visible="true" />
+                        </Toolbar>
+                    </uiT:extension>
+                    <uiT:layoutData>
+                        <FlexItemData growFactor="1" baseSize="0%" />
+                    </uiT:layoutData>
+                </uiT:Table>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

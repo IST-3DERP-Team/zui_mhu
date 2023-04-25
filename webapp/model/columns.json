@@ -1,0 +1,32 @@
+{
+    "MHU":[
+        {"name": "HUTYP", "position": 3, "type": "Edm.String", "visible": true, "required": false, "width": "150px", "hideOnChange": false, "showable": true, "sort": "",
+            "valueHelp": {"show": true, "items": {"path": "/HUTypeSHSet", "value": "Hutyp", "text": "Shorttext"},
+            "suggestionItems": {"path": "/HUTypeSHSet", "text": "{Hutyp}", "additionalText": "", "maxSuggestionWidth": "350px"},
+            "filter": "", "entitySet": ""}},
+        {"name": "PLANTCD", "position": 3, "type": "Edm.String", "visible": true, "required": false, "width": "150px", "hideOnChange": false, "showable": true, "sort": "",
+            "valueHelp": {"show": true, "items": {"path": "/PlantSHSet", "value": "Plantcd", "text": "Name1"},
+            "suggestionItems": {"path": "/PlantSHSet", "text": "{Plantcd}", "additionalText": "", "maxSuggestionWidth": "350px"},
+            "filter": "", "entitySet": ""}},
+        {"name": "SLOC", "position": 3, "type": "Edm.String", "visible": true, "required": false, "width": "150px", "hideOnChange": false, "showable": true, "sort": "",
+        "valueHelp": {"show": true, "items": {"path": "/StorageLocSHSet", "value": "SLOC", "text": "SHORTTEXT"},
+        "suggestionItems": {"path": "/StorageLocSHSet", "text": "{SLOC}", "additionalText": "", "maxSuggestionWidth": "350px"},
+        "filter": "", "entitySet": ""}},
+        {"name": "WHSECD", "position": 3, "type": "Edm.String", "visible": true, "required": false, "width": "150px", "hideOnChange": false, "showable": true, "sort": "",
+        "valueHelp": {"show": true, "items": {"path": "/WarehouseSHSet", "value": "WHSECD", "text": ""},
+        "suggestionItems": {"path": "/WarehouseSHSet", "text": "{WHSECD}", "additionalText": "", "maxSuggestionWidth": "350px"},
+        "filter": "", "entitySet": ""}},
+        {"name": "STORAREACD", "position": 3, "type": "Edm.String", "visible": true, "required": false, "width": "150px", "hideOnChange": false, "showable": true, "sort": "",
+        "valueHelp": {"show": true, "items": {"path": "/StoreAreaSHSet", "value": "STORARECD", "text": ""},
+        "suggestionItems": {"path": "/StoreAreaSHSet", "text": "{STORARECD}", "additionalText": "", "maxSuggestionWidth": "350px"},
+        "filter": "", "entitySet": ""}},
+        {"name": "BINCD", "position": 3, "type": "Edm.String", "visible": true, "required": false, "width": "150px", "hideOnChange": false, "showable": true, "sort": "",
+        "valueHelp": {"show": true, "items": {"path": "/BinCodeSHSet", "value": "BINCD", "text": ""},
+        "suggestionItems": {"path": "/BinCodeSHSet", "text": "{BINCD}", "additionalText": "", "maxSuggestionWidth": "350px"},
+        "filter": "", "entitySet": ""}}
+    ],
+    "MHUDTLS":[
+        {"name": "HUITEM", "position": 0, "type": "Edm.String", "visible": true, "required": false, "width": "120px", "hideOnChange": false, "showable": true, "sort": "Ascending",
+            "valueHelp": {"show": false, "source": "", "value": "", "desc": ""}}
+    ]
+}
